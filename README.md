@@ -19,6 +19,28 @@ I will allow me to go through the entire life cycle of a machine learning models
 2. Change this code to production code
 3. Discover several deployment solutions: **Paas**, **Iaas**
 
+## 4. Model building
+
+### Different models
+
+We can apply any of the three types of models:
+1. **Linear models** *ex:* Logistic Regression
+2. **Tree models** *ex:* Random Forest
+3. **Neural Networks**
+
+## Model evaluation
+
+We can calculate different statistics:
+* **ROC-AUC**: for classification problems: good/bad assessment
+* **Accuracy**: in percentage
+* **MSE, RMSE**
+
+
+## Model stacking - Meta Ensembling
+
+It consists of taking the prediction of different models and combine them to make a better assessment of the target
+
+
 
 
 
