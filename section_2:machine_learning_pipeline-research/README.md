@@ -43,3 +43,73 @@ We need to deploy at least the steps 3, 4 and 5 to the **Cloud**. It is not simp
     * PCA
     * ...
 
+## 3. Feature selection
+
+It is the action of keeping a fewer number of features that are more predictive to build our model.
+
+### Motivation
+
+Why do we select features in a business?
+1. Simple models are easier to interpret by the end user
+2. Reduce the training times
+3. Enhance generalization by reducing overfitting
+4. Easier to integrate by the Software Developers in production: smaller json messages sent to the model
+5. Reduce the risk of data errors during the use of the model: less code for error handling
+6. Less information to log
+7. Reduce feature engineering code
+
+### Variable Redundancy
+
+There are 4 main types of variable redundancy
+1. **Constant variables**: only one value per variable
+2. **Quasi-constant variables**: >99% constant
+3. **Duplication**: Same variable repeated several times in the same dataset
+4. **Correlation**: The correlated variables provide the same information
+
+## Methods
+
+There are there main kind of methods for feature selection on data:
+1. **Filter methods**
+    * Independent of the ML algorithm
+    * Based only on variable characteristics
+*PROS*:
+    * Quick and easy method
+    * Fast
+    * Model agnostic
+*CONS*:
+    * Doesn't capture redundancy
+    * Doesn't capture feature interaction
+
+2. **Wrapper methods**
+    * Consider ML algorithm
+    * Evaluate features by groups
+*PROS*:
+    * Considers feature interaction
+    * Best performance
+    * Best feature subset for a given algorithm
+*CONS*:
+    * Not model agnostic
+    * Computation expensive
+    * Often impracticable
+
+3. **Embedded methods**
+    Feature selection during training of ML algorithm
+*PROS*:
+    * Good model performance
+    * Capture feature interaction
+    * Better than filter
+    * Faster than wrapper
+*CONS*:
+    * Not model agnostic
+
+In this course, we will try to remove **feature selection** from the pipeline to aim efficiency. We will then select the feature ahead of the pipeline and then pass a list of the features to keep for the model.
+
+
+
+
+
+
+
+
+
+
