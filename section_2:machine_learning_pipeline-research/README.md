@@ -19,3 +19,27 @@ A typical Machine Learning pipeline is made of the following steps:
 
 After all these steps, we can move towards **model deployment**.
 We need to deploy at least the steps 3, 4 and 5 to the **Cloud**. It is not simply a model that we deploy but an entire pipeline.
+
+## 2. Feature Engineering
+
+* **Missing data**: Absence of values for certain observations within a variable.
+*Reasons:*
+    * It can be lost or not stored properly
+    * The value doesn't exist in the first place
+
+* **Labels**: Variables for which the value is a String an not numerical. These are **categorical variables**
+*Issues*:
+    * **Cardinality**: the number of values the categorical variable can take. High cardinality can be an issue because it will dominate other low-cardinality variables
+    * **Rare labels**: variables that don't often appear. For instance if the value appear on the test set and not on the train set, we don't know how to deal with them
+    * **Categories**: they are String and thus need to be encoded
+
+* **Distribution**: For numerical variables. Is the data following a Gaussian curve or is it skewed
+
+* **Outliers**: For some algorithm, the presence of outliers may be detrimental: values that are too high or too low compared to the other values
+
+* **Feature magnitude**: if the scale values the variables are not the same, it may affect the outcome of some algorithms. For instance, the following algorithms are sensitive to feature scaling:
+    * Linear regression
+    * Neural Networks
+    * PCA
+    * ...
+
