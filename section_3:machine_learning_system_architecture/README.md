@@ -43,6 +43,25 @@ The ke Principles for ML System architecture are:
 * **Scalability**: ability to serve model predictions to large numbers of customers (within time constraints)
 * **Testing**: test variation between model versions
 
+## Design Approaches to ML System Architecture
+
+There are 4 general ML Architectures (Inexhaustible list):
+1. **Train by batch, predict on the fly, serve via REST API**. 
+
+*ex:* a model train persisted off line, loaded in a Web application about houses in real time when  details about a given house are posted by a client to a REST API
+
+2. **Train by batch, predict by batch, serve through a database**.
+
+*ex:* a user upload a CSV of houses with the input details. Then, he receives an email 30 minutes later to check the website to see the results. This application will perform the batch prediction with an asynchronous task queue and those results will be saved to a shared database which can be accessed by a web application.
+
+3. **Train, predict by streaming**
+
+*ex:* our application could read a prediction from a distributed queue or an updated model from this distributed queue and easily load it
+
+4. **Train by batch, predict on mobile**
+
+*ex:* No backend service is needed to make the prediction. It could be made on device
+
 
 
 
