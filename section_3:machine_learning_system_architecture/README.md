@@ -62,6 +62,17 @@ There are 4 general ML Architectures (Inexhaustible list):
 
 *ex:* No backend service is needed to make the prediction. It could be made on device
 
+## Architecture Component Breakdown
+
+We are going to breakdown the **1. Train by batch, predict on the fly** method that we are going to investigate later in the course.
+
+The high level architecture is composed as followed:
+* **Data Layer**: provides access to all our data sources to train our models. It also simplifies the challenge of data reproducibility
+* **Feature Layer**: is responsible for generating feature data in a transparent, reusable, and scalable manner
+* **Scoring Layer**: transforms feature into predictions. We often use scikit-learn as the industry standard for this layer. Other libraries are Xgboost and Keras for Neural Networks
+* **Evaluation Layer**: monitors the equivalence of different models. This layer can be used to check how closely  the predictions on live traffic matches the training predictions for example
+
+
 
 
 
