@@ -94,7 +94,7 @@ Problems occur if the training dataset can't be reproduced at a latter stage.
 
 * Save a snapshot of training data (either the actual data, or a reference to a storage location such as AWS S3)
     - PRO: if the data is not pulled from too many different  and if it is not too big
-    - CONS: it may not be allowed to store the data on another platform and if too big, not been able to store it somewhere else
+    - CONS: it may not be allowed to store the data on another platform because of regulations and if too big, not been able to store it somewhere else
 
 * Design the data sources with accurate timestamps, so that a view of the data at any point in time can be retrieved
     - PRO: it works in the ideal situation
