@@ -8,20 +8,25 @@ OUTPUT_MODEL_PATH = 'logistic_regression.pkl'
 # ======= PARAMETERS ===============
 
 # imputation parameters
-IMPUTATION_DICT = 
+IMPUTATION_DICT = {'age': 28.0, 'fare': 14.4542}
 
 
 # encoding parameters
-FREQUENT_LABELS = 
+FREQUENT_LABELS = {
+    'sex': ['female', 'male'],
+    'cabin': ['C', 'Missing'],
+    'embarked': ['C', 'Q', 'S'],
+    'title': ['Miss', 'Mr', 'Mrs']
+}
 
 
-DUMMY_VARIABLES = 
+DUMMY_VARIABLES = ['sex', 'cabin', 'embarked', 'title']
 
 
 # ======= FEATURE GROUPS =============
 
 TARGET = 'survived'
 
-CATEGORICAL_VARS = 
+CATEGORICAL_VARS = ['sex', 'cabin', 'embarked', 'title']
 
-NUMERICAL_TO_IMPUTE = 
+NUMERICAL_TO_IMPUTE = ['age', 'fare']
