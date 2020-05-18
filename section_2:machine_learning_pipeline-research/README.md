@@ -105,14 +105,14 @@ There are there main kind of methods for feature selection on data:
 
 *PROS*:
 
-    - Good model performance
-    - Capture feature interaction
-    - Better than filter
-    - Faster than wrapper
+    * Good model performance
+    * Capture feature interaction
+    * Better than filter
+    * Faster than wrapper
 
 *CONS*:
 
-    - Not model agnostic
+    * Not model agnostic
 
 In this course, we will try to remove **feature selection** from the pipeline to aim efficiency. We will then select the feature ahead of the pipeline and then pass a list of the features to keep for the model.
 
