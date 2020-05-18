@@ -48,19 +48,23 @@ def remove_rare_labels(df, var, frequent_labels):
 
 def encode_categorical(df, var):
     # adds ohe variables and removes original categorical variable
-
     df = df.copy()
     df = pd.concat([df,
                     pd.get_dummies(df[var], prefix=var, drop_first=True)
                     ], axis=1)
     df.drop(labels=var, axis=1, inplace=True)
+    return df
 
 
 def check_dummy_variables(df, dummy_list):
 
     # check that all missing variables where added when encoding, otherwise
     # add the ones that are missing
-    pass
+    for var in dummy_list:
+        if var in df.columns:
+            pass
+        else:
+            df[var] = 0
 
 
 def train_scaler(df, output_path):
@@ -71,7 +75,7 @@ def train_scaler(df, output_path):
     return scaler
 
 
-def scale_features(df, output_path):
+def scale_features(df, scaler):
     # load scaler and transform data
     scaler = joblib.load(scaler)  # with joblib probably
     return scaler.transform(df)
@@ -80,7 +84,7 @@ def scale_features(df, output_path):
 def train_model(df, target, output_path):
     # train and save model
     # initialise the model
-    model = LogisticRegression(c=0.0005, random_state=0)
+    model = LogisticRegression(C=0.0005, random_state=0)
 
     # train the model
     model.fit(df, target)

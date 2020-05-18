@@ -8,7 +8,7 @@ OUTPUT_MODEL_PATH = 'logistic_regression.pkl'
 # ======= PARAMETERS ===============
 
 # imputation parameters
-IMPUTATION_DICT = {'age': 28.0, 'fare': 14.4542}
+IMPUTATION_DICT = {'age': 28, 'fare': 14.4542}
 
 
 # encoding parameters
@@ -20,7 +20,8 @@ FREQUENT_LABELS = {
 }
 
 
-DUMMY_VARIABLES = ['sex', 'cabin', 'embarked', 'title']
+DUMMY_VARIABLES = ['sex_male', 'cabin_Missing', 'cabin_Rare', 'embarked_Q',
+                   'embarked_Rare', 'embarked_S', 'title_Mr', 'title_Mrs', 'title_Rare']
 
 
 # ======= FEATURE GROUPS =============
