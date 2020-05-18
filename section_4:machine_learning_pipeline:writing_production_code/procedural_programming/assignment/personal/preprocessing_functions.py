@@ -18,7 +18,7 @@ def load_data(df_path):
 
 def divide_train_test(df, target):
     # Function divides data set in train and test
-    X_train, X_test, y_train, y_test = train_test_split(df,
+    X_train, X_test, y_train, y_test = train_test_split(df.drop(target, axis=1),
                                                         df[target],
                                                         test_size=0.2,
                                                         random_state=0)
@@ -31,7 +31,7 @@ def extract_cabin_letter(df, var):
 
 def add_missing_indicator(df, var):
     # function adds a binary missing value indicator
-    df[var+'_NA'] = np.where(df[var].isnull(), 1, 0)
+    return np.where(df[var].isnull(), 1, 0)
 
 
 def impute_na(df, var, replacement='Missing'):
@@ -60,11 +60,16 @@ def check_dummy_variables(df, dummy_list):
 
     # check that all missing variables where added when encoding, otherwise
     # add the ones that are missing
-    for var in dummy_list:
-        if var in df.columns:
-            pass
-        else:
+
+    missing_vars = [var for var in dummy_list if var not in df.columns]
+
+    if len(missing_vars) == 0:
+        print('All dummies were added')
+    else:
+        for var in missing_vars:
             df[var] = 0
+
+    return df
 
 
 def train_scaler(df, output_path):

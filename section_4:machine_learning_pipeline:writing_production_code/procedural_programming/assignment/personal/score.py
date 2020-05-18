@@ -17,8 +17,12 @@ def predict(data):
 
     # impute NA numerical
     for var in config.NUMERICAL_TO_IMPUTE:
-        data[var] = pf.impute_na(
-            data, var, replacement=config.IMPUTATION_DICT[var])
+        # add missing indicator first
+        data[var + '_NA'] = pf.add_missing_indicator(data, var)
+
+        # impute NA
+        data[var] = pf.impute_na(data, var,
+                                 replacement=config.IMPUTATION_DICT[var])
 
     # Group rare labels
     for var in config.CATEGORICAL_VARS:

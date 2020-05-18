@@ -25,6 +25,10 @@ for var in config.CATEGORICAL_VARS:
 
 # impute numerical variable
 for var in config.NUMERICAL_TO_IMPUTE:
+    # add missing indicator first
+    X_train[var + '_NA'] = pf.add_missing_indicator(X_train, var)
+
+    # impute NA
     X_train[var] = pf.impute_na(
         X_train, var, replacement=config.IMPUTATION_DICT[var])
 
@@ -40,7 +44,7 @@ for var in config.CATEGORICAL_VARS:
     X_train = pf.encode_categorical(X_train, var)
 
 # check all dummies were added
-pf.check_dummy_variables(X_train, config.DUMMY_VARIABLES)
+X_train = pf.check_dummy_variables(X_train, config.DUMMY_VARIABLES)
 
 # train scaler and save
 scaler = pf.train_scaler(X_train,
@@ -48,7 +52,7 @@ scaler = pf.train_scaler(X_train,
 
 
 # scale train set
-X_train = scaler.transform(X_train, copy=True)
+X_train = scaler.transform(X_train)
 
 
 # train model and save

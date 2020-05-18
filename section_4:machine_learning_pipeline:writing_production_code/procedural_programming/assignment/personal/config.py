@@ -8,7 +8,7 @@ OUTPUT_MODEL_PATH = 'logistic_regression.pkl'
 # ======= PARAMETERS ===============
 
 # imputation parameters
-IMPUTATION_DICT = {'age': 28, 'fare': 14.4542}
+IMPUTATION_DICT = {'age': 28.0, 'fare': 14.4542}
 
 
 # encoding parameters
