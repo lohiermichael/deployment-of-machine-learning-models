@@ -19,16 +19,16 @@ X_train, X_test, y_train, y_test = pf.divide_train_test(data, config.TARGET)
 for var in config.CATEGORICAL_TO_IMPUTE:
     X_train[var] = pf.impute_na(X_train, var, replacement='Missing')
 
-
+print(X_train)
 # impute numerical variable
 X_train[config.NUMERICAL_TO_IMPUTE] = pf.impute_na(X_train,
-       config.NUMERICAL_TO_IMPUTE,
-       replacement=config.LOTFRONTAGE_MODE)
+                                                   config.NUMERICAL_TO_IMPUTE,
+                                                   replacement=config.LOTFRONTAGE_MODE)
 
 
 # capture elapsed time
 X_train[config.YEAR_VARIABLE] = pf.elapsed_years(X_train,
-       config.YEAR_VARIABLE, ref_var='YrSold')
+                                                 config.YEAR_VARIABLE, ref_var='YrSold')
 
 
 # log transform numerical variables
@@ -38,13 +38,14 @@ for var in config.NUMERICAL_LOG:
 
 # Group rare labels
 for var in config.CATEGORICAL_ENCODE:
-    X_train[var] = pf.remove_rare_labels(X_train, var, config.FREQUENT_LABELS[var])
+    X_train[var] = pf.remove_rare_labels(
+        X_train, var, config.FREQUENT_LABELS[var])
 
 
 # encode categorical variables
 for var in config.CATEGORICAL_ENCODE:
     X_train[var] = pf.encode_categorical(X_train, var,
-           config.ENCODING_MAPPINGS[var])
+                                         config.ENCODING_MAPPINGS[var])
 
 
 # train scaler and save
