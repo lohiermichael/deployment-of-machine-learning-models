@@ -72,35 +72,47 @@ There are there main kind of methods for feature selection on data:
 1. **Filter methods**
     * Independent of the ML algorithm
     * Based only on variable characteristics
+
 *PROS*:
+
     * Quick and easy method
     * Fast
     * Model agnostic
+
 *CONS*:
+
     * Doesn't capture redundancy
     * Doesn't capture feature interaction
 
 2. **Wrapper methods**
     * Consider ML algorithm
     * Evaluate features by groups
+
 *PROS*:
+
     * Considers feature interaction
     * Best performance
     * Best feature subset for a given algorithm
+
 *CONS*:
+
     * Not model agnostic
     * Computation expensive
     * Often impracticable
 
 3. **Embedded methods**
     Feature selection during training of ML algorithm
+
 *PROS*:
-    * Good model performance
-    * Capture feature interaction
-    * Better than filter
-    * Faster than wrapper
+
+    - Good model performance
+    - Capture feature interaction
+    - Better than filter
+    - Faster than wrapper
+
 *CONS*:
-    * Not model agnostic
+
+    - Not model agnostic
 
 In this course, we will try to remove **feature selection** from the pipeline to aim efficiency. We will then select the feature ahead of the pipeline and then pass a list of the features to keep for the model.
 
