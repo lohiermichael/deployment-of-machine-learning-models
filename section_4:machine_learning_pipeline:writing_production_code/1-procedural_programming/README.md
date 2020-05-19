@@ -12,7 +12,7 @@ In procedural programming, the code is divided in three scripts:
 3. **the scoring script:** calls the previous functions in order, to score new data
 
 In addition to these three scripts, we typically include a yaml file where we gather:
-- hard coded variables to engineer, and values to use to transform features.
+- hard coded variables to engineer, and values to use to transform features
 - hard coded paths to retrieve and store data
 
 By changing these values, we ca re-adjust our models.
