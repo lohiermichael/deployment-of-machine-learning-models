@@ -46,6 +46,22 @@ Scikit-Learn has three main types of objects:
 
    Scikit Learn already has **templates** for the transformers. So, we need to call the templates, **inherit** all the methods and adjust the `fit` and `transform` parts of it
 
+   ## Advantages
+
+   - It can be tested, versioned, tracked and controlled
+   - One can build future models on top
+   - It follows good software developer practices
+   - It leverages the power of an acknowledge API like Scikit-Learn
+   - Data scientists are familiar with Pipeline use, so it can reduce over-head
+   - Engineering steps can be packaged and re-used in future ML models
+
+   ## Disadvantages
+
+   - It requires software development skills to build and maintain the code
+   - It can be an overhead for software developers that need to familiarize with code for sklearn API. For instance, it may be challenging to debug
+
+   
+
 
 
 
