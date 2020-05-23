@@ -14,7 +14,7 @@ class CategoricalImputer(BaseEstimator, TransformerMixin):
             self.variables = variables
 
     def fit(self, X, y=None):
-        # we need the fit statement to accomodate the sklearn pipeline
+        # we need the fit statement to accommodate the sklearn pipeline
         return self
 
     def transform(self, X):
@@ -37,7 +37,7 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         # persist mode in a dictionary
         self.imputer_dict_ = {}
-        
+
         for feature in self.variables:
             self.imputer_dict_[feature] = X[feature].mode()[0]
         return self
@@ -54,7 +54,7 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
 class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables=None, reference_variable=None):
-        
+
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
@@ -78,9 +78,9 @@ class TemporalVariableEstimator(BaseEstimator, TransformerMixin):
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
     def __init__(self, tol=0.05, variables=None):
-        
+
         self.tol = tol
-        
+
         if not isinstance(variables, list):
             self.variables = [variables]
         else:
@@ -103,7 +103,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
         X = X.copy()
         for feature in self.variables:
             X[feature] = np.where(X[feature].isin(self.encoder_dict_[
-                    feature]), X[feature], 'Rare')
+                feature]), X[feature], 'Rare')
 
         return X
 
@@ -125,7 +125,8 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
         self.encoder_dict_ = {}
 
         for var in self.variables:
-            t = temp.groupby([var])['target'].mean().sort_values(ascending=True).index
+            t = temp.groupby([var])['target'].mean(
+            ).sort_values(ascending=True).index
             self.encoder_dict_[var] = {k: i for i, k in enumerate(t, 0)}
 
         return self
@@ -149,7 +150,7 @@ class LogTransformer(BaseEstimator, TransformerMixin):
             self.variables = variables
 
     def fit(self, X, y=None):
-        # to accomodate the pipeline
+        # to accommodate the pipeline
         return self
 
     def transform(self, X):
@@ -161,10 +162,10 @@ class LogTransformer(BaseEstimator, TransformerMixin):
         return X
 
 
-class DropUnecessaryFeatures(BaseEstimator, TransformerMixin):
+class DropUnnecessaryFeatures(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables_to_drop=None):
-        
+
         self.variables = variables_to_drop
 
     def fit(self, X, y=None):
