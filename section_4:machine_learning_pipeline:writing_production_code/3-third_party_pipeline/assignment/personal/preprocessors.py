@@ -28,15 +28,20 @@ class MissingIndicator(BaseEstimator, TransformerMixin):
 class CategoricalImputer(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables=None):
-        pass
+        if not isinstance(variables, list):
+            self.variables = [variables]
+        else:
+            self.variables = variables
 
     def fit(self, X, y=None):
         # we need the fit statement to accommodate the sklearn pipeline
-        pass
+        return self
 
     def transform(self, X):
         X = X.copy()
-        pass
+        for feature in self.variables:
+            X[feature] = X[feature].fillna('Missing')
+        return X
 
 
 # Numerical missing value imputer
