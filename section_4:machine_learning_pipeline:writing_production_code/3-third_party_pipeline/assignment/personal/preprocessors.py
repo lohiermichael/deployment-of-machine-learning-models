@@ -8,18 +8,20 @@ from sklearn.base import BaseEstimator, TransformerMixin
 class MissingIndicator(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables=None):
-        pass
-
+        if not isinstance(variables, list):
+            self.variables = [variables]
+        else:
+            self.variables = variables
 
     def fit(self, X, y=None):
         # to accommodate sklearn pipeline functionality
-        pass
-
+        return self
 
     def transform(self, X):
-        # add indicator
         X = X.copy()
-        pass
+        for var in self.variables:
+            X[var+'_NA'] = np.where(X[var].isnull(), 1, 0)
+        return X
 
 
 # categorical missing value imputer
@@ -69,6 +71,8 @@ class ExtractFirstLetter(BaseEstimator, TransformerMixin):
         pass
 
 # frequent label categorical encoder
+
+
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
     def __init__(self, tol=0.05, variables=None):
@@ -94,18 +98,18 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
 
         # HINT: persist the dummy variables found in train set
-        self.dummies = pd.get_dummies(X[self.variables], drop_first=True).columns
-        
+        self.dummies = pd.get_dummies(
+            X[self.variables], drop_first=True).columns
+
         return self
 
     def transform(self, X):
         # encode labels
         X = X.copy()
         # get dummies
-        
+
         # drop original variables
 
         # add missing dummies if any
-
 
         return X
