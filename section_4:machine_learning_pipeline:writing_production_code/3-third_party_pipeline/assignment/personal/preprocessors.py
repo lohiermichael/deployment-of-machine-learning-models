@@ -93,17 +93,29 @@ class ExtractFirstLetter(BaseEstimator, TransformerMixin):
 class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
     def __init__(self, tol=0.05, variables=None):
-        pass
+
+        self.tot = tot
+
+        if not isinstance(variables, list):
+            self.variables = [variables]
+        else:
+            self.variables = variables
 
     def fit(self, X, y=None):
 
         # persist frequent labels in dictionary
         self.encoder_dict_ = {}
-        pass
+        for feature in self.variables:
+            tmp = X.groupby(feature)[feature].count() / len(X)
+            self.encoder_dict_[feature] = tmp[tmp > self.tot].index
+        return self
 
     def transform(self, X):
         X = X.copy()
-        pass
+        for feature in self.variables:
+            X[feature] = np.where(X[feature].isin(
+                self.encoder_dict_[feature], X[feature], 'Rare'))
+        return X
 
 
 # string to numbers categorical encoder
