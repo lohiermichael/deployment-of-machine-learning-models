@@ -105,9 +105,11 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
         # persist frequent labels in dictionary
         self.encoder_dict_ = {}
+
         for feature in self.variables:
             tmp = X.groupby(feature)[feature].count() / len(X)
             self.encoder_dict_[feature] = tmp[tmp > self.tot].index
+
         return self
 
     def transform(self, X):
@@ -122,7 +124,10 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 class CategoricalEncoder(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables=None):
-        pass
+        if not isinstance(variables, list):
+            self.variables = [variables]
+        else:
+            self.variables = variables
 
     def fit(self, X, y=None):
 
@@ -135,10 +140,17 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # encode labels
         X = X.copy()
-        # get dummies
+        for var in self.variables:
+            # get dummies
+            X = pd.concat([X, pd.get_dummies(
+                X[var], prefix=var, drop_first=True)], axis=1)
 
         # drop original variables
+        X.drop(labels=self.variables, axis=1, inplace=True)
 
         # add missing dummies if any
+        for feature in self.dummies:
+            if feature not in X.columns:
+                X[feature] = 0
 
         return X
