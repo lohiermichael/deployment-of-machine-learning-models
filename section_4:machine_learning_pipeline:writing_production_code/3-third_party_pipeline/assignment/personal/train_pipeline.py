@@ -22,7 +22,6 @@ def run_training():
         random_state=0)
 
     # fit pipeline
-    print(X_train)
     titanic_pipe.fit(X_train, y_train)
 
     # save pipeline

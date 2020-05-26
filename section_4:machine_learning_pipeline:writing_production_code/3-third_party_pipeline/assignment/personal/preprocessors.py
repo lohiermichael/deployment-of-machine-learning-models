@@ -109,7 +109,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
         for feature in self.variables:
             tmp = X.groupby(feature)[feature].count() / len(X)
-            self.encoder_dict_[feature] = tmp[tmp > self.tot].index
+            self.encoder_dict_[feature] = tmp[tmp > self.tol].index
 
         return self
 
@@ -117,7 +117,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
         X = X.copy()
         for feature in self.variables:
             X[feature] = np.where(X[feature].isin(
-                self.encoder_dict_[feature], X[feature], 'Rare'))
+                self.encoder_dict_[feature]), X[feature], 'Rare')
         return X
 
 
