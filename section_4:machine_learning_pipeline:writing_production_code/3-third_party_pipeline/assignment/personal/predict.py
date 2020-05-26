@@ -5,14 +5,18 @@ import config
 
 
 def make_prediction(input_data):
-    
+
     # load pipeline and make predictions
-    # rturn predictions
+    _pipeline_survived = joblib.load(filename=config.PIPELINE_NAME)
+
+    # return predictions
+    results = _pipeline_survived.predict(input_data)
 
     return results
-   
+
+
 if __name__ == '__main__':
-    
+
     # test pipeline
     import numpy as np
     from sklearn.model_selection import train_test_split
@@ -25,10 +29,9 @@ if __name__ == '__main__':
         data[config.TARGET],
         test_size=0.2,
         random_state=0)  # we are setting the seed here
-    
+
     pred = make_prediction(X_test)
-    
+
     # determine the accuracy
     print('test accuracy: {}'.format(accuracy_score(y_test, pred)))
     print()
-
