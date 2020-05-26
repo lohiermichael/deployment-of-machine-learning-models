@@ -18,6 +18,8 @@ titanic_pipe = Pipeline(
                 tol=0.01,
                 variables=config.CATEGORICAL_VARS)),
         ('categorical_encoder', pp.CategoricalEncoder(
-            variables=config.CATEGORICAL_VARS))
+            variables=config.CATEGORICAL_VARS)),
+        ('scaler', StandardScaler()),
+        ('logistic_regression_model', LogisticRegression(C=0.0005, random_state=0))
     ]
 )
