@@ -16,12 +16,13 @@ def run_training():
 
     # divide train and test
     X_train, X_test, y_train, y_test = train_test_split(
-        data[config.FEATURES],
+        data[config.CATEGORICAL_VARS + config.NUMERICAL_VARS],
         data[config.TARGET],
         test_size=0.2,
         random_state=0)
 
     # fit pipeline
+    print(X_train)
     titanic_pipe.fit(X_train, y_train)
 
     # save pipeline
