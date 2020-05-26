@@ -94,7 +94,7 @@ class RareLabelCategoricalEncoder(BaseEstimator, TransformerMixin):
 
     def __init__(self, tol=0.05, variables=None):
 
-        self.tot = tot
+        self.tol = tol
 
         if not isinstance(variables, list):
             self.variables = [variables]
