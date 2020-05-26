@@ -19,8 +19,8 @@ class MissingIndicator(BaseEstimator, TransformerMixin):
 
     def transform(self, X):
         X = X.copy()
-        for var in self.variables:
-            X[var+'_NA'] = np.where(X[var].isnull(), 1, 0)
+        for feature in self.variables:
+            X[feature+'_NA'] = np.where(X[feature].isnull(), 1, 0)
         return X
 
 
@@ -73,15 +73,19 @@ class NumericalImputer(BaseEstimator, TransformerMixin):
 class ExtractFirstLetter(BaseEstimator, TransformerMixin):
 
     def __init__(self, variables=None):
-        pass
+        if not isinstance(variables, list):
+            self.variables = [variables]
+        else:
+            self.variables = variables
 
     def fit(self, X, y=None):
         # we need this step to fit the sklearn pipeline
-        pass
+        return self
 
     def transform(self, X):
         X = X.copy()
-        pass
+        for feature in self.variables:
+            X[feature] = X[feature].str[0]
 
 # frequent label categorical encoder
 
