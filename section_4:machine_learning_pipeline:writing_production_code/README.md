@@ -54,7 +54,7 @@ We will finally discuss **feature selection**.
  ### Disadvantages
 
  - Lack of versatility: as the pipeline is built from one dataset, it can't accept potential new variables from other data sources
- - No additional data can be fed through the pipeline, as the entire processes are based on the first data on which it was built
+ - No additional data can be fed througxzh the pipeline, as the entire processes are based on the first data on which it was built
 
  **Including a feature selection algorithm as part of the pipeline**
  - ensures that from all the available features only the most useful ones are selected to train the model
