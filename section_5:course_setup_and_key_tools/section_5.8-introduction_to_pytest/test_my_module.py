@@ -1,9 +1,16 @@
+import pytest
+
 from my_module import square
 
 
-def test_square_gives_correct_value():
+@pytest.fixture
+def input_value():
+    return 4
+
+
+def test_square_gives_correct_value(input_value):
     # When
-    subject = square(2)
+    subject = square(input_value)
 
     # Then
-    assert subject == 4
+    assert subject == 16
