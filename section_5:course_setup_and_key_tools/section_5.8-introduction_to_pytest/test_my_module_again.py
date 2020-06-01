@@ -1,9 +1,9 @@
 from my_module import square
 
 
-def test_square_return_value_is_int():
+def test_square_return_value_is_int(input_value):
     # When
-    subject = square(3)
+    subject = square(input_value)
 
     # Then
     assert isinstance(subject, int)
