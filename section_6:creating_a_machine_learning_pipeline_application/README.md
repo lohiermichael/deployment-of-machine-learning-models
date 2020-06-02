@@ -27,3 +27,6 @@ Build your models in a way that allows you to:
 - Debug problems in the code base
 - Elegantly handle errors
 - Have a modular structure
+
+The steps of this section can be tracked in the following [repo](https://github.com/lohiermichael/public-repo-deployment-ml-models.git) that I forked from the course template.
+
