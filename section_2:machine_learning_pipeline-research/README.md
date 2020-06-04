@@ -1,4 +1,4 @@
-# Machine Learning Pipeline - Research Environment
+# Section 2: Machine Learning Pipeline - Research Environment
 
 ## 1. Overview
 

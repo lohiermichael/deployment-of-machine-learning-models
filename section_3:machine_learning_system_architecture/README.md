@@ -1,4 +1,4 @@
-# Machine Learning System Architecture
+# Section 3: Machine Learning System Architecture
 ## *And why it matters*
 
 A **System** is composed of:

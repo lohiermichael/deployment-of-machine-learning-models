@@ -1,4 +1,4 @@
-# Creating a ML Pipeline Application
+# Section 6: Creating a ML Pipeline Application
 
 In this section, we will be covering everything from:
 - Preparing the training data
