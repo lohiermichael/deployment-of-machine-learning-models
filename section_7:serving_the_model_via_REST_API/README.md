@@ -39,3 +39,5 @@ Throughout this section, we will be using the **Flask micro framework** to build
 - Popular choice for Python microservices (40K stars + on github)
  - Lightweight and flexible and has great documentation
  - Alternatives include: Django, Pyramid, Bottle, Sanic, Tornado, API Star...
+
+ The steps of this section can be tracked in the following [repo](https://github.com/lohiermichael/public-repo-deployment-ml-models.git) that I forked from the course template.
