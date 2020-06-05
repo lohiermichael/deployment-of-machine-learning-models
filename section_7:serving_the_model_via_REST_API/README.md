@@ -41,3 +41,20 @@ Throughout this section, we will be using the **Flask micro framework** to build
  - Alternatives include: Django, Pyramid, Bottle, Sanic, Tornado, API Star...
 
  The steps of this section can be tracked in the following [repo](https://github.com/lohiermichael/public-repo-deployment-ml-models.git) that I forked from the course template.
+
+
+ ## Wrap-up
+
+ ### Key Learning Points
+
+ - **Make your API a thin layer**: the idea is to avoid having code logics for your models spread across two different applications which can increase the chance to forget to update one.
+
+ - **Validate inputs carefully**: consider using a schema. 
+ 
+ 
+ - **Log all key inputs, outputs and errors**:  for reproducibility and to simplify potential debugging and audits
+
+ - **Test your API**
+
+ 
+
