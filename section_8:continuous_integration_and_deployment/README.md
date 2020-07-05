@@ -49,3 +49,12 @@ There are many awesome CI/CD platforms:
 We must use on CI/CD platform, it doesn't matter which one...
 
 
+## Key Learning Points
+
+- **Make sure you use a CI/CD pipeline:** when working in team it makes you save a huge amount of time. It also helps with reducing the issues in production and outages
+- **Train your models in the pipeline**
+-  **Deploy your models in the pipeline**
+- **Test your models via the pipeline**
+
+
+
