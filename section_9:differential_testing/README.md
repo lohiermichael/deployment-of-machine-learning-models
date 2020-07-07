@@ -20,4 +20,22 @@ Example of mistakes that differential tests can spot:
 
 If you release your code as is, some tests will pass without raising any system errors. But the predictions that we make will change. **Differential Tests** will catch these changes and alert us before the code goes to production.
 
+## Key Learning points
+
+- Differential tests can protect you from costly mistakes
+- Run them like any other tests in your CI pipeline
+- Accessing the ol version with the model required a sort of hacking. Once we use Docker, things will become easier. It will just be comparing images
+
+## Other kinds of tests
+
+- If a prediction and/or training speed is a key metric for you, consider implementing **benchmark tests** to compare the speed of functions from one system version to the next. 
+    - A great framework for doing this is **pytest-benchmark**
+
+- In complex microservice environments, you may also wish to consider **API contract testing**
+    - A great framework for this is **Pact**
+
+
+
+
+
 
