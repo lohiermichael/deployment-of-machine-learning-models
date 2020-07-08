@@ -60,3 +60,20 @@ In this course, we are going to choose **Heroku**
 - Works with Docker
 - Great Documentation
 - Supports multiple languages not only Python
+
+## Key Learning Points
+
+- Integrate your deployment steps into the CI pipeline
+- Deployments can be easy
+- Get used to checking deployments and logs: debugging in production is an important skill
+
+## Heroku scaling
+
+- On a paid plan, you can manually change the number of Heroku "dynos" to scale your app
+- On Performance Tier Dynos, you can enable and configure autoscaling
+
+## Heroku next steps
+
+- You can add databases, message queues and caches very easily
+- It's worth exploring the heroku add-ons
+- If you want to deploy multiple services from a monorepo, this is also possible with Heroku
