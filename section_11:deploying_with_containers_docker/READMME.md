@@ -50,4 +50,16 @@ We use them for:
 
 - Docker is the most popular tool for creating and running containers
 
+## Key Learning Points
+
+- Containerizing your applications brings a number of benefits: reproducibility, isolation, ease of environment management and more
+- Containerization is not a silver bullet - not suitable for every use case (e.g. complex multiple OS requirements)
+- Integrate your image building and deployments into you CI pipeline is important
+
+
+## Resources
+
+**DockerHub**: Docker platform with open source images
+- We need to create an account
+- We can check how the images are built
 
