@@ -130,3 +130,6 @@ packages/ml_api/uploads/*
 
 # VS Code configureation
 .vscode
+
+# Deep learning data
+seperds_purse
