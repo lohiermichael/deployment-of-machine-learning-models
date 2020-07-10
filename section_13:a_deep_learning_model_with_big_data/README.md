@@ -44,3 +44,19 @@ For these types of problems, **deep learning** models are the most usually built
 
 In this part, we will present the dataset that we are going to use to build and compute the expensive ML model.
 
+TH **V2 Plant Seedlings** dataset comes from Kaggle. 
+
+It consists of:
+- **5539 images** of 
+- **crop and weed seeds** belonging to
+- **12 different species**
+
+The challenge is:<br>
+Given an image of the plant, **predict which specie it belongs to**.
+
+We choose this dataset because:
+- it is big enough to cover some of the challenges of deploying a machine learning model built on a large dataset
+- it is small enough to follow the videos along while running 
+
+After this section, we should be able to apply what we learnt utilizing these dataset to larger datasets and more complex models.
+
