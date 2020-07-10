@@ -40,3 +40,7 @@ For these types of problems, **deep learning** models are the most usually built
 - Coding Challenges
 - Deployment Challenges
 
+## V2 Plant Seedlings: dataset description
+
+In this part, we will present the dataset that we are going to use to build and compute the expensive ML model.
+
