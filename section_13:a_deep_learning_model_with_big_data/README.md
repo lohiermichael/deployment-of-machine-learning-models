@@ -60,3 +60,54 @@ We choose this dataset because:
 
 After this section, we should be able to apply what we learnt utilizing these dataset to larger datasets and more complex models.
 
+## Reproducibility in Neural Networks
+
+We are going to cover the common problems encountered when trying to obtain reproducible results with Keras and how to try and avoid them.
+
+### Reminder: why does reproducibility matter?
+
+- Reproducibility ensures that models' gains in performance are genuine: they won't come out of nowhere. 
+
+This is particularly relevant for NN as they have a multitude of parameters that need to be fit an many of them rely on random initialization.
+
+- Reproducibility reduces or eliminates variations when re-running experiments: it is essential for testing, continuous integration and iterative refinement of models 
+
+This is crucial when we are looking to improve a previous model that we have already in-house because without reproducible results we wouldn't be sure whether the increase in performance is real or cost by the intrinsic randomness
+
+- Reproducibility is increasingly important as sophisticated models and real-time data streams push us towards distributed training across clusters of GPUs: more sources of non determinism behavior during model training
+
+### What causes non-reproducibility in Neural Networks?
+
+- **Random initialization of layer weights:** the weights of the different layers are initialized randomly
+
+- **Shuffling of datasets:** the dataset is randomly shuffled for example if we leave 10% of the samples for cross-validation without model fit
+
+- **Noisy hidden layers:** dropout layers, which exclude the contribution of a particular neuron, are initialized randomly
+
+- **Changes in ML frameworks:** different versions of mL libraries can lead to different behaviors
+
+- **Non-deterministic GPU floating point calculations:** if using GPUs, certain functions in cuDNN, the Nvidia DEEp Neural Networks library for GPUs, are stochastic, which means that they are initialized randomly at each run.
+
+- **CPU multi-threading:** CPU parallelization when using Tensorflow can also introduce non-reproducibility
+
+### How to control for random initialization
+
+- **Keras** gets its source of randomness from the **numpy random number generator. 
+
+Therefore, seeding the numpy random generator both for Therano or TensorFlow backend
+
+- Tensorflow uses multiple threads, which may cause non-reproducible results.
+
+Force TensorFlow to use single thread. This decision is a trade-off between reproducibility and speed
+
+- **In Python 3, you need to set a flag before running your script**
+
+PYTHONHASHSEED=0
+
+- Set the cuDNN  as deterministic
+
+
+
+
+
+
