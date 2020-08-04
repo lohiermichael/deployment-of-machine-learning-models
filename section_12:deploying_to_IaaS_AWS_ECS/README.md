@@ -104,6 +104,28 @@ To summarize, **Farget** tasks are more expensive but there is less to manage an
     - it is self-managed. You can deploy it on premises in private clouds or public clouds compared to **ECS** that is managed by **AWS**
 - New player: **Amazon Elastic Container Service for Kubernetes (EKS)**
 
+## Wrap-up
+
+### Key learning points
+
+We saw throughout the section that:
+
+- There are a large range of container orchestration engines as well as manged or self-managed options to consider, each one with pros and cons
+
+- Deploying to IaaS has far greater configuration complexity compared to PaaS: security, resource consumption for our containers
+
+- IaaS can scale to virtually any needs our business may have
+
+### IaaS Next Steps
+
+- Explore other AWS services: S3, Load Balancing, new ELK. 
+
+In this section, we didn't setup a custom domain or a fixed IP address. To do that on ECS, we need to work with the AWS Load Balancing Options
+
+- Explore other IaaS Providers: MS Azure, Google Compute Engine.
+
+- Explore other container orchestration engines: Kubernetes, Docker Swarm
+
 
 
 
