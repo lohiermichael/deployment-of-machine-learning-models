@@ -106,6 +106,26 @@ PYTHONHASHSEED=0
 
 - Set the cuDNN  as deterministic
 
+## Wrap up
+
+### Training in CI: Speed and Memory Considerations
+
+We have seen in this section that we are bound to scenarios where:
+- Data is too huge to be included in packaged: in this cases, it is still important to keep a reference and a version of the dataset no matter where it is stored for the sake of reproducibility
+
+- Data can't fit in memory: in this case there are particular techniques: loading and training by batch with Keras for instance.
+
+
+
+Training demanding model issues relying on big datasets have the following issue:
+- You are likely to need more powerful machines for training neural network: we might consider using GPUs and pay extra for that
+
+### Key Learning points
+
+- Even with larger datasets, you still need to think about reproducibility
+- Training in CI is more important and beneficial than ever with deep learning as the cloud server can be more powerful than a local one
+- Be sure to tune your machines consider using GPUs
+- Reproducibility in Neural Networks has some particular challenges
 
 
 
