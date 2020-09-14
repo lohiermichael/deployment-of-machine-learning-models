@@ -46,6 +46,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+.pylintrc
 
 # Translations
 *.mo
@@ -121,6 +122,7 @@ packages/regression_model/regression_model/trained_models/*.pkl
 packages/neural_network_model/neural_network_model/trained_models/*.pkl
 packages/neural_network_model/neural_network_model/trained_models/*.h5
 *.h5
+*.pkl
 packages/neural_network_model/neural_network_model/datasets/training_data_reference.txt
 
 .DS_Store
